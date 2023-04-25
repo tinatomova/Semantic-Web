@@ -1,0 +1,41 @@
+<!ELEMENT Catalog (Wineries, Regions, Wine*)>
+<!ELEMENT Wineries (Winery*)>
+<!ELEMENT Winery EMPTY>
+<!ATTLIST Winery 
+        id ID #REQUIRED 
+        name CDATA #REQUIRED>
+<!ELEMENT Regions (Region*)>
+<!ELEMENT Region EMPTY>
+<!ATTLIST Region
+        id ID #REQUIRED 
+        name CDATA #REQUIRED>
+<!ELEMENT Wine (image?, GeneralInfo, TypeInfo, Price, Alcohol, Rating, AdditionalInfo)>
+<!ATTLIST Wine 
+        id ID #REQUIRED 
+        winery IDREF #REQUIRED>
+<!ELEMENT image EMPTY>
+<!ATTLIST image href ENTITY #REQUIRED>
+<!NOTATION png PUBLIC "images/png">
+<!ELEMENT GeneralInfo (Name, Origin)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Origin (Country, Area, Terroir)>
+<!ATTLIST Origin
+        region IDREF #REQUIRED>
+<!ELEMENT Country (#PCDATA)>
+<!ELEMENT Area (#PCDATA)>
+<!ELEMENT Terroir (#PCDATA)>
+<!ELEMENT TypeInfo (Type, Color, Year, Package)>
+<!ELEMENT Type (#PCDATA)>
+<!ELEMENT Color (#PCDATA)>
+<!ELEMENT Year (#PCDATA)>
+<!ELEMENT Package (#PCDATA)>
+<!ELEMENT Price (#PCDATA)>
+<!ELEMENT Alcohol (#PCDATA)>
+<!ELEMENT Rating (#PCDATA)>
+<!ELEMENT AdditionalInfo (SommelierDescription, ConsumeWith, About)>
+<!ELEMENT SommelierDescription (Aroma, Body, Aftertaste)>
+<!ELEMENT Aroma (#PCDATA)>
+<!ELEMENT Body (#PCDATA)>
+<!ELEMENT Aftertaste (#PCDATA)>
+<!ELEMENT ConsumeWith (#PCDATA)>
+<!ELEMENT About (#PCDATA)>
